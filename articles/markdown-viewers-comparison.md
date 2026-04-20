@@ -1,5 +1,5 @@
 ---
-title: "2026 Markdown Viewer 比較（grip / markserv / md-fileserver / glow / mo / Arto / mdts）"
+title: "2026 Markdown Viewer 比較（grip / markserv / glow / mo / Arto / mdts）"
 emoji: "👀"
 type: "idea"
 topics: [markdown, cli, viewer, ドキュメント]
