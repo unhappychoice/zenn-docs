@@ -6,12 +6,12 @@ SLEEP=${3:-5}
 REPO=${4:-/home/owner/.ghq/github.com/unhappychoice/splashboard}
 TEMPLATES=/home/owner/.ghq/github.com/unhappychoice/splashboard/src/templates
 ROOT=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/books/splashboard-guide
+IMG=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/images/splashboard-guide
 TAPES="$ROOT/tapes/.generated"
-mkdir -p "$TAPES" /home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/images/splashboard-guide
+mkdir -p "$TAPES" "$IMG"
 
 SB_HOME=/tmp/sb-vhs/$NAME
-rm -rf "$SB_HOME"
-mkdir -p "$SB_HOME"
+rm -rf "$SB_HOME"; mkdir -p "$SB_HOME"
 cp "$TEMPLATES/$NAME.toml" "$SB_HOME/project.dashboard.toml"
 
 cat > "$TAPES/$NAME.tape" <<TAPE
@@ -21,6 +21,7 @@ Set FontSize 14
 Set Width 1500
 Set Height $HEIGHT
 Set TypingSpeed 0ms
+Set Theme { "background": "#0e172a", "foreground": "#e1e4e8" }
 Env SPLASHBOARD_HOME "$SB_HOME"
 Env PS1 ""
 
@@ -38,7 +39,7 @@ TAPE
 
 vhs "$TAPES/$NAME.tape" 2>&1 | tail -1
 if [[ -f "/tmp/sb-vhs-$NAME.png" ]]; then
-  mv "/tmp/sb-vhs-$NAME.png" "/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/images/splashboard-guide/$NAME.png"
+  mv "/tmp/sb-vhs-$NAME.png" "$IMG/$NAME.png"
   echo "✓ $NAME"
 else
   echo "✗ $NAME (no png)"
