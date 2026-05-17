@@ -1,0 +1,17 @@
+[[widget]]
+id = "events"
+fetcher = "basic_timeline"
+render = { type = "list_timeline", bullet = "●", max_items = 5 }
+[widget.options]
+events = [
+  { at = "2026-05-17T18:00:00+09:00", title = "fix race in cache lock", status = "ok" },
+  { at = "2026-05-17T14:00:00+09:00", title = "release v0.6.0", status = "ok" },
+  { at = "2026-05-16T22:00:00+09:00", title = "review pending: layout refactor", status = "warn" },
+  { at = "2026-05-16T10:00:00+09:00", title = "CI failed on macOS-13", status = "error" },
+  { at = "2026-05-15T17:00:00+09:00", title = "merge new fetcher: stock_watchlist", status = "ok" },
+]
+
+[[row]]
+height = { length = 14 }
+  [[row.child]]
+  widget = "events"

@@ -1,0 +1,39 @@
+[[widget]]
+id = "year"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "year"
+
+[[widget]]
+id = "month"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "month"
+
+[[widget]]
+id = "week"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "week"
+
+[[widget]]
+id = "day"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "day"
+
+[[row]]
+height = { length = 4 }
+gap = 2
+  [[row.child]]
+  widget = "year"
+  [[row.child]]
+  widget = "month"
+  [[row.child]]
+  widget = "week"
+  [[row.child]]
+  widget = "day"

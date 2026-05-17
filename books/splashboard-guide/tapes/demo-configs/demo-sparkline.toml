@@ -1,0 +1,23 @@
+[[widget]]
+id = "cpu"
+fetcher = "basic_numbers"
+render = { type = "chart_sparkline", style = "bars" }
+[widget.options]
+values = [12, 25, 18, 30, 45, 50, 38, 60, 75, 82, 65, 55, 40, 35, 28, 22, 18, 25, 35, 50, 60, 55, 45, 30]
+
+[[widget]]
+id = "cpu_line"
+fetcher = "basic_numbers"
+render = { type = "chart_sparkline", style = "line" }
+[widget.options]
+values = [12, 25, 18, 30, 45, 50, 38, 60, 75, 82, 65, 55, 40, 35, 28, 22, 18, 25, 35, 50, 60, 55, 45, 30]
+
+[[row]]
+height = { length = 4 }
+  [[row.child]]
+  widget = "cpu"
+
+[[row]]
+height = { length = 1 }
+  [[row.child]]
+  widget = "cpu_line"

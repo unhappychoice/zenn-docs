@@ -1,0 +1,17 @@
+[[widget]]
+id = "lang"
+fetcher = "basic_bars"
+render = { type = "chart_bar", horizontal = true, max_bars = 6 }
+[widget.options]
+bars = [
+  { label = "Rust", value = 93132 },
+  { label = "Markdown", value = 15492 },
+  { label = "Other", value = 12066 },
+  { label = "TOML", value = 2685 },
+  { label = "CSS", value = 1850 },
+]
+
+[[row]]
+height = { length = 10 }
+  [[row.child]]
+  widget = "lang"
