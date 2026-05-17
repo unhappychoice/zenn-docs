@@ -1,0 +1,19 @@
+# github_my_prs と同じ Timeline shape を basic_timeline で再現
+[[widget]]
+id = "prs"
+fetcher = "basic_timeline"
+render = { type = "list_timeline", bullet = "●", max_items = 6 }
+[widget.options]
+events = [
+  { at = "2026-05-17T18:00:00+09:00", title = "feat: add stock_watchlist fetcher", status = "ok", detail = "myorg/dashboard #312" },
+  { at = "2026-05-17T14:00:00+09:00", title = "fix: race condition in cache lock", status = "ok", detail = "splashboard #128" },
+  { at = "2026-05-16T22:00:00+09:00", title = "WIP: refactor layout engine", status = "warn", detail = "myorg/dashboard #310" },
+  { at = "2026-05-16T10:00:00+09:00", title = "review-requested: shape contract docs", status = "warn", detail = "splashboard #127" },
+  { at = "2026-05-15T17:00:00+09:00", title = "merge: bump ratatui to 0.27", status = "ok", detail = "splashboard #125" },
+  { at = "2026-05-14T11:00:00+09:00", title = "ci-failed: macOS-13 timeout", status = "error", detail = "myorg/api #88" },
+]
+
+[[row]]
+height = { length = 16 }
+  [[row.child]]
+  widget = "prs"

@@ -9,10 +9,11 @@ IMG=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/image
 CONF="$ROOT/tapes/demo-configs/$NAME.toml"
 TAPES="$ROOT/tapes/.generated"
 mkdir -p "$TAPES" "$IMG"
+REPO=/home/owner/.ghq/github.com/unhappychoice/splashboard
 
 SB_HOME=/tmp/sb-vhs/$NAME
 rm -rf "$SB_HOME"; mkdir -p "$SB_HOME"
-cp "$CONF" "$SB_HOME/home.dashboard.toml"
+cp "$CONF" "$SB_HOME/project.dashboard.toml"
 
 cat > "$TAPES/$NAME.tape" <<TAPE
 Output "/tmp/sb-vhs-$NAME.gif"
@@ -26,7 +27,7 @@ Env SPLASHBOARD_HOME "$SB_HOME"
 Env PS1 ""
 
 Hide
-Type 'cd /tmp'
+Type 'cd $REPO'
 Enter
 Sleep 200ms
 Show

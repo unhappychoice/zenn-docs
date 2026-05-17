@@ -1,0 +1,51 @@
+[[widget]]
+id = "os"
+fetcher = "system_info_host"
+render = { type = "text_plain", align = "center" }
+[widget.options]
+kind = "os_version"
+
+[[widget]]
+id = "host"
+fetcher = "system_info_host"
+render = { type = "text_plain", align = "center" }
+[widget.options]
+kind = "hostname"
+
+[[widget]]
+id = "shell"
+fetcher = "system_info_host"
+render = { type = "text_plain", align = "center" }
+[widget.options]
+kind = "shell"
+
+[[widget]]
+id = "kernel"
+fetcher = "system_info_kernel"
+render = { type = "text_plain", align = "center" }
+
+[[widget]]
+id = "uptime"
+fetcher = "system_monitor_uptime"
+render = { type = "text_plain", align = "center" }
+
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "os"
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "host"
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "shell"
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "kernel"
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "uptime"

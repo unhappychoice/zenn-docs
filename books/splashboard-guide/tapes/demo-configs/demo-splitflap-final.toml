@@ -1,9 +1,9 @@
 [[widget]]
 id = "hero"
 fetcher = "git_repo_name"
-render = { type = "animated_splitflap", inner = { type = "text_ascii", style = "figlet", font = "banner", align = "center", color = "panel_title" } }
+render = { type = "animated_splitflap", inner = { type = "text_ascii", style = "figlet", font = "standard", align = "center", color = "panel_title" } }
 
 [[row]]
-height = { length = 8 }
+height = { length = 10 }
   [[row.child]]
   widget = "hero"

@@ -1,0 +1,27 @@
+[[widget]]
+id = "weather"
+fetcher = "weather"
+render = { type = "text_plain", align = "center" }
+[widget.options]
+latitude = 35.6762
+longitude = 139.6503
+units = "metric"
+
+[[widget]]
+id = "weather_line"
+fetcher = "weather"
+render = "chart_line"
+[widget.options]
+latitude = 35.6762
+longitude = 139.6503
+units = "metric"
+
+[[row]]
+height = { length = 3 }
+  [[row.child]]
+  widget = "weather"
+
+[[row]]
+height = { length = 10 }
+  [[row.child]]
+  widget = "weather_line"
