@@ -10,15 +10,19 @@ IMG=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/image
 TAPES="$ROOT/tapes/.generated"
 mkdir -p "$TAPES" "$IMG"
 
-# Source bg from src/theme/presets.rs. Combined with bg=reset in settings.toml,
-# splashboard inherits terminal bg → uniform across splash + chrome area.
+# Source bg from src/theme/presets.rs by default. For 3 themes (dracula,
+# nord, monokai) the rendered splash inside is 1-2 RGB units off from
+# what vhs paints for that same hex outside the splash (vhs handles
+# "explicit Rgb bg" cells slightly differently from Color::Reset cells).
+# Pre-compensate by giving vhs the actual rendered inside value so the
+# outside matches the inside.
 case "$THEME" in
   tokyo_night) BG="#1a1b26" ;;
   catppuccin_mocha) BG="#1e1e2e" ;;
-  dracula) BG="#282a36" ;;
-  nord) BG="#2e3440" ;;
+  dracula) BG="#272a35" ;;  # source #282a36, rendered #272a35
+  nord) BG="#2c333f" ;;     # source #2e3440, rendered #2c333f
   gruvbox_dark) BG="#282828" ;;
-  monokai) BG="#272822" ;;
+  monokai) BG="#27281D" ;;  # source #272822, rendered #272820
   *) echo "unknown theme: $THEME"; exit 1 ;;
 esac
 
