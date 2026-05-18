@@ -14,6 +14,11 @@ REPO=/home/owner/.ghq/github.com/unhappychoice/splashboard
 SB_HOME=/tmp/sb-vhs/$NAME
 rm -rf "$SB_HOME"; mkdir -p "$SB_HOME"
 cp "$CONF" "$SB_HOME/project.dashboard.toml"
+cat > "$SB_HOME/settings.toml" <<TOML
+[theme]
+bg = "reset"
+bg_subtle = "reset"
+TOML
 
 cat > "$TAPES/$NAME.tape" <<TAPE
 Output "/tmp/sb-vhs-$NAME.gif"

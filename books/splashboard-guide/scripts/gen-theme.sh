@@ -47,6 +47,8 @@ cp "$TEMPLATES/$PRESET.toml" "$SB_HOME/home.dashboard.toml"
 cat > "$SB_HOME/settings.toml" <<TOML
 [theme]
 preset = "$THEME"
+bg = "reset"
+bg_subtle = "reset"
 TOML
 
 cat > "$TAPES/theme-$THEME.tape" <<TAPE

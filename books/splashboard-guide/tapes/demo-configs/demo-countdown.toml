@@ -1,0 +1,19 @@
+[[widget]]
+id = "newyear"
+fetcher = "clock_countdown"
+[widget.options]
+target = "2027-01-01T00:00:00+09:00"
+target_label = "to next year"
+
+[[widget]]
+id = "newyear_render"
+fetcher = "clock_countdown"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+[widget.options]
+target = "2027-01-01T00:00:00+09:00"
+target_label = "to next year"
+
+[[row]]
+height = { length = 5 }
+  [[row.child]]
+  widget = "newyear_render"

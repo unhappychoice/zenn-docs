@@ -13,6 +13,11 @@ mkdir -p "$TAPES" "$IMG"
 SB_HOME=/tmp/sb-vhs/$NAME
 rm -rf "$SB_HOME"; mkdir -p "$SB_HOME/store"
 cp "$CONF" "$SB_HOME/home.dashboard.toml"
+cat > "$SB_HOME/settings.toml" <<TOML
+[theme]
+bg = "reset"
+bg_subtle = "reset"
+TOML
 # Pre-populate store file
 cat > "$SB_HOME/store/habit.json" <<'JSON'
 { "value": 0.6, "label": "habit · 6 / 10 日" }
