@@ -1,0 +1,49 @@
+[[widget]]
+id = "title"
+fetcher = "basic_static"
+format = "my data dashboard"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "habit"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "gauge_line", label_position = "center" }
+
+[[widget]]
+id = "signups"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "chart_sparkline", style = "bars" }
+
+[[widget]]
+id = "reading"
+fetcher = "basic_read_store"
+file_format = "json"
+render = "grid_heatmap"
+
+[[row]]
+height = { length = 5 }
+  [[row.child]]
+  widget = "title"
+
+[[row]]
+height = { length = 2 }
+
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "habit"
+
+[[row]]
+height = { length = 4 }
+  [[row.child]]
+  widget = "signups"
+
+[[row]]
+height = { length = 1 }
+
+[[row]]
+height = { length = 6 }
+  [[row.child]]
+  widget = "reading"
