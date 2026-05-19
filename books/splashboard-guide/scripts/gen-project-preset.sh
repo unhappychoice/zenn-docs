@@ -26,7 +26,7 @@ Set FontSize 14
 Set Width 1500
 Set Height $HEIGHT
 Set TypingSpeed 0ms
-Set Theme { "background": "#0e172a", "foreground": "#e1e4e8" }
+Set Theme { "background": "#0e172a", "foreground": "#e1e4e8", "cursor": "#0e172a" }
 Env SPLASHBOARD_HOME "$SB_HOME"
 Env PS1 ""
 
