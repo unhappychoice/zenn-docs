@@ -1,0 +1,29 @@
+# ch8 §1 text_ascii renderer — same clock in figlet vs blocks style
+[[widget]]
+id = "fig"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "figlet", font = "small", align = "center" }
+
+[[widget]]
+id = "blk"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[row]]
+height = { length = 5 }
+  [[row.child]]
+  widget = "fig"
+  border = "top"
+  title = "style = figlet"
+
+[[row]]
+height = { length = 5 }
+  [[row.child]]
+  widget = "blk"
+  border = "top"
+  title = "style = blocks"
+
+[[row]]
+height = { fill = 1 }
