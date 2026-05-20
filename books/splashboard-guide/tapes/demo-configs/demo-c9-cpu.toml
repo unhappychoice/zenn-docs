@@ -1,0 +1,14 @@
+# ch9 §7 system_monitor_cpu × chart_sparkline — basic_numbers repro
+[[widget]]
+id = "cpu"
+fetcher = "basic_numbers"
+render = { type = "chart_sparkline", style = "bars" }
+[widget.options]
+values = [8, 11, 9, 14, 62, 78, 71, 33, 19, 12, 9, 41, 88, 92, 84, 47, 22, 14, 10, 9, 27, 55, 38, 16]
+
+[[row]]
+height = { length = 6 }
+  [[row.child]]
+  widget = "cpu"
+  border = "top"
+  title = "cpu load · last 24 samples"

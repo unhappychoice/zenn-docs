@@ -1,0 +1,33 @@
+# ch9 §2 git_status × status_badge — basic_badge repro
+[[widget]]
+id = "b1"
+fetcher = "basic_badge"
+render = "status_badge"
+[widget.options]
+status = "ok"
+label = "feat/checkout-flow · 3 ahead"
+
+[[widget]]
+id = "b2"
+fetcher = "basic_badge"
+render = "status_badge"
+[widget.options]
+status = "warn"
+label = "main · 2 behind origin"
+
+[[row]]
+height = { length = 2 }
+flex = "center"
+  [[row.child]]
+  widget = "b1"
+  width = { length = 44 }
+
+[[row]]
+height = { length = 1 }
+
+[[row]]
+height = { length = 2 }
+flex = "center"
+  [[row.child]]
+  widget = "b2"
+  width = { length = 44 }

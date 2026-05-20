@@ -1,0 +1,11 @@
+# ch9 §1 clock × text_ascii — blocks style (distinct from the ch7/ch8 figlet)
+[[widget]]
+id = "clock"
+fetcher = "clock"
+format = "%H:%M:%S"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[row]]
+height = { length = 6 }
+  [[row.child]]
+  widget = "clock"

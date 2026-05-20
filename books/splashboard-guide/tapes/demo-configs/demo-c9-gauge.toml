@@ -1,0 +1,61 @@
+# ch9 §8 clock_ratio × gauge_circle — six periods (distinct from ch8's four)
+[[widget]]
+id = "hour"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "hour"
+
+[[widget]]
+id = "day"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "day"
+
+[[widget]]
+id = "week"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "week"
+
+[[widget]]
+id = "month"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "month"
+
+[[widget]]
+id = "quarter"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "quarter"
+
+[[widget]]
+id = "year"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "year"
+
+[[row]]
+height = { length = 3 }
+gap = 2
+  [[row.child]]
+  widget = "hour"
+  [[row.child]]
+  widget = "day"
+  [[row.child]]
+  widget = "week"
+  [[row.child]]
+  widget = "month"
+  [[row.child]]
+  widget = "quarter"
+  [[row.child]]
+  widget = "year"
+
+[[row]]
+height = { fill = 1 }
