@@ -1,0 +1,18 @@
+# ch10 seasonal splash — clock_countdown × text_ascii
+[[widget]]
+id = "ship"
+fetcher = "clock_countdown"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+[widget.options]
+target = "2026-07-01T00:00:00+09:00"
+target_label = "to v2.0 release"
+
+[[row]]
+height = { length = 6 }
+  [[row.child]]
+  widget = "ship"
+  border = "top"
+  title = "release countdown"
+
+[[row]]
+height = { fill = 1 }

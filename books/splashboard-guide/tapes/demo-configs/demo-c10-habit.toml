@@ -1,0 +1,43 @@
+# ch10 habit tracker — basic_read_store × gauge_line, three habits.
+# Each widget reads $HOME/.splashboard/store/<widget_id>.json.
+[[widget]]
+id = "exercise"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "gauge_line", label_position = "center" }
+
+[[widget]]
+id = "reading"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "gauge_line", label_position = "center" }
+
+[[widget]]
+id = "japanese"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "gauge_line", label_position = "center" }
+
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "exercise"
+
+[[row]]
+height = { length = 1 }
+
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "reading"
+
+[[row]]
+height = { length = 1 }
+
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "japanese"
+
+[[row]]
+height = { fill = 1 }
