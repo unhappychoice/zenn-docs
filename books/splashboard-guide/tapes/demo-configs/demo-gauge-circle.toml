@@ -27,7 +27,7 @@ render = { type = "gauge_circle", label_position = "center" }
 period = "day"
 
 [[row]]
-height = { length = 4 }
+height = { length = 3 }
 gap = 2
   [[row.child]]
   widget = "year"
@@ -37,3 +37,8 @@ gap = 2
   widget = "week"
   [[row.child]]
   widget = "day"
+
+# Spacer: absorbs the remaining viewport rows so the gauge row above
+# keeps its declared 3-row height instead of stretching to fill.
+[[row]]
+height = { fill = 1 }

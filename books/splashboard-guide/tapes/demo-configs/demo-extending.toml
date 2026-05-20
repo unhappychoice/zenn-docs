@@ -39,3 +39,8 @@ gap = 4
   width = { length = 36 }
   border = "top"
   title = "reading"
+
+# Spacer: absorbs leftover viewport rows so the panel row keeps its
+# declared 8-row height instead of stretching to fill.
+[[row]]
+height = { fill = 1 }
