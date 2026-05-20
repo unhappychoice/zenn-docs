@@ -1,7 +1,7 @@
 title: "splashboard ガイド"
 summary: "シェル起動時と cd のたびにダッシュボードを描く CLI「splashboard」を、作例から仕組みまで日本語で順に追えるガイド。"
 topics: ["rust", "cli", "tui", "terminal", "ratatui"]
-published: false
+published: true
 price: 0
 chapters:
   - "1.preface"
