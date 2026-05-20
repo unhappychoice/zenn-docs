@@ -1,0 +1,43 @@
+# ch3 opener — what a splash looks like the moment a shell starts.
+[[widget]]
+id = "clock"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "figlet", font = "big", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "date"
+fetcher = "clock"
+format = "%A, %B %-d"
+render = { type = "text_plain", align = "center" }
+shape = "text"
+
+[[widget]]
+id = "quote"
+fetcher = "random_quote"
+render = { type = "list_plain", align = "center" }
+
+[[row]]
+height = { length = 7 }
+  [[row.child]]
+  widget = "clock"
+
+[[row]]
+height = { length = 2 }
+flex = "center"
+  [[row.child]]
+  widget = "date"
+  width = { length = 40 }
+
+[[row]]
+height = { length = 1 }
+
+[[row]]
+height = { length = 3 }
+  [[row.child]]
+  widget = "quote"
+  border = "top"
+  title = "quote of the day"
+
+[[row]]
+height = { fill = 1 }

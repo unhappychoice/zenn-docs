@@ -1,0 +1,45 @@
+# ch5 — a per-repo dashboard: committed into the repo at
+# .splashboard/dashboard.toml, fires the moment you cd into it.
+[[widget]]
+id = "name"
+fetcher = "git_repo_name"
+render = { type = "text_ascii", style = "figlet", font = "small", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "start"
+fetcher = "basic_entries"
+render = "grid_table"
+[widget.options]
+entries = [
+  { key = "build", value = "cargo build --release" },
+  { key = "test", value = "cargo nextest run" },
+  { key = "run", value = "cargo run -- --watch" },
+  { key = "docs", value = "see CONTRIBUTING.md" },
+]
+
+[[widget]]
+id = "status"
+fetcher = "git_status"
+render = { type = "status_badge" }
+
+[[row]]
+height = { length = 5 }
+  [[row.child]]
+  widget = "name"
+
+[[row]]
+height = { length = 2 }
+flex = "center"
+  [[row.child]]
+  widget = "status"
+  width = { length = 40 }
+
+[[row]]
+height = { length = 7 }
+  [[row.child]]
+  widget = "start"
+  border = "top"
+  title = "getting started"
+
+[[row]]
+height = { fill = 1 }
