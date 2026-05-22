@@ -3,10 +3,10 @@ set -euo pipefail
 NAME=$1
 HEIGHT=${2:-720}
 SLEEP=${3:-5}
-REPO=${4:-/home/owner/.ghq/github.com/unhappychoice/splashboard}
-TEMPLATES=/home/owner/.ghq/github.com/unhappychoice/splashboard/src/templates
-ROOT=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/books/splashboard-guide
-IMG=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/images/splashboard-guide
+REPO="${4:-${SPLASHBOARD_REPO:-$HOME/.ghq/github.com/unhappychoice/splashboard}}"
+TEMPLATES="${SPLASHBOARD_REPO:-$HOME/.ghq/github.com/unhappychoice/splashboard}/src/templates"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+IMG="$ROOT/../../images/splashboard-guide"
 TAPES="$ROOT/tapes/.generated"
 mkdir -p "$TAPES" "$IMG"
 

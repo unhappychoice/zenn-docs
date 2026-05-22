@@ -99,4 +99,4 @@ height = { length = 7 }
   [[row.child]]
   widget = "prs"
   border = "top"
-  title = "my open PRs"
+  title = "my pull requests"

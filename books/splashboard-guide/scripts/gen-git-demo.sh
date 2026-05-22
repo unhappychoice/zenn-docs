@@ -4,12 +4,12 @@ NAME=$1
 HEIGHT=${2:-400}
 SLEEP=${3:-3}
 WIDTH=${4:-900}
-ROOT=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/books/splashboard-guide
-IMG=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/images/splashboard-guide
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+IMG="$ROOT/../../images/splashboard-guide"
 CONF="$ROOT/tapes/demo-configs/$NAME.toml"
 TAPES="$ROOT/tapes/.generated"
 mkdir -p "$TAPES" "$IMG"
-REPO=/home/owner/.ghq/github.com/unhappychoice/splashboard
+REPO="${SPLASHBOARD_REPO:-$HOME/.ghq/github.com/unhappychoice/splashboard}"
 
 SB_HOME=/tmp/sb-vhs/$NAME
 rm -rf "$SB_HOME"; mkdir -p "$SB_HOME"

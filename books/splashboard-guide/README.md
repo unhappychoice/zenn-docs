@@ -1,6 +1,6 @@
-# splashboard ガイド (draft)
+# splashboard ガイド
 
-Zenn book の下書き。 `published: false` なので公開されない。
+Zenn book。 `config.yaml` の `published: true` で公開される。
 
 ## 構成方針
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
-ROOT=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/books/splashboard-guide
-IMG=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/images/splashboard-guide
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+IMG="$ROOT/../../images/splashboard-guide"
 TAPES="$ROOT/tapes/.generated"
 NAME=demo-extending
 mkdir -p "$TAPES" "$IMG"

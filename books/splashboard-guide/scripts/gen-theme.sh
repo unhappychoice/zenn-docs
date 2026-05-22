@@ -4,9 +4,9 @@ THEME=$1
 HEIGHT=${2:-720}
 SLEEP=${3:-5}
 PRESET=${4:-home_daily}
-TEMPLATES=/home/owner/.ghq/github.com/unhappychoice/splashboard/src/templates
-ROOT=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/books/splashboard-guide
-IMG=/home/owner/.ghq/github.com/unhappychoice/docs/Flow/Articles/zenn-docs/images/splashboard-guide
+TEMPLATES="${SPLASHBOARD_REPO:-$HOME/.ghq/github.com/unhappychoice/splashboard}/src/templates"
+ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
+IMG="$ROOT/../../images/splashboard-guide"
 TAPES="$ROOT/tapes/.generated"
 mkdir -p "$TAPES" "$IMG"
 
@@ -22,7 +22,7 @@ case "$THEME" in
   dracula) BG="#272a35" ;;  # source #282a36, rendered #272a35
   nord) BG="#2c333f" ;;     # source #2e3440, rendered #2c333f
   gruvbox_dark) BG="#282828" ;;
-  monokai) BG="#27281D" ;;  # source #272822, rendered #272820
+  monokai) BG="#27281D" ;;  # source #272822, rendered #27281d
   *) echo "unknown theme: $THEME"; exit 1 ;;
 esac
 
