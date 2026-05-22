@@ -4,7 +4,6 @@
 id = "name"
 fetcher = "git_repo_name"
 render = { type = "text_plain", align = "center", color = "panel_title" }
-shape = "text"
 
 [[widget]]
 id = "status"

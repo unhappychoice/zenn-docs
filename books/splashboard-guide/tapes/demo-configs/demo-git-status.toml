@@ -7,7 +7,6 @@ render = { type = "status_badge" }
 id = "branch_text"
 fetcher = "git_status"
 render = { type = "text_plain", align = "center" }
-shape = "text"
 
 [[widget]]
 id = "branch_entries"

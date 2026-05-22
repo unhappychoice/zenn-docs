@@ -11,7 +11,6 @@ render  = { type = "text_ascii", style = "figlet", font = "banner", align = "cen
 id      = "subtitle"
 fetcher = "git_status"
 render  = { type = "text_plain", align = "center" }
-shape   = "text"
 
 [[widget]]
 id      = "commits"

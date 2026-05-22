@@ -10,7 +10,6 @@ id = "date"
 fetcher = "clock"
 format = "%A, %B %-d"
 render = { type = "text_plain", align = "center" }
-shape = "text"
 
 [[widget]]
 id = "quote"
