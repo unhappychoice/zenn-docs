@@ -1,0 +1,46 @@
+[[widget]]
+id = "habit"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "gauge_line", label_position = "center" }
+
+[[widget]]
+id = "signups"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "chart_sparkline", style = "bars" }
+
+[[widget]]
+id = "reading"
+fetcher = "basic_read_store"
+file_format = "json"
+render = "grid_heatmap"
+
+[[row]]
+height = { length = 1 }
+
+[[row]]
+height = { length = 8 }
+gap = 4
+  [[row.child]]
+  widget = "habit"
+  width = { length = 36 }
+  border = "top"
+  title = "habit"
+
+  [[row.child]]
+  widget = "signups"
+  width = { length = 36 }
+  border = "top"
+  title = "signups"
+
+  [[row.child]]
+  widget = "reading"
+  width = { length = 36 }
+  border = "top"
+  title = "reading"
+
+# Spacer: absorbs leftover viewport rows so the panel row keeps its
+# declared 8-row height instead of stretching to fill.
+[[row]]
+height = { fill = 1 }

@@ -1,0 +1,77 @@
+# ch5 — a home dashboard: ambient, opens with the shell or on cd $HOME.
+[[widget]]
+id = "clock"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "cal"
+fetcher = "basic_calendar"
+render = "grid_calendar"
+[widget.options]
+events = [4, 5, 6]
+
+[[widget]]
+id = "tz"
+fetcher = "clock_timezones"
+render = "list_plain"
+[widget.options]
+timezones = [
+  { tz = "Asia/Tokyo", label = "Tokyo" },
+  { tz = "Europe/Berlin", label = "Berlin" },
+  { tz = "America/New_York", label = "New York" },
+]
+
+[[widget]]
+id = "hour"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "hour"
+
+[[widget]]
+id = "day"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "day"
+
+[[widget]]
+id = "year"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "year"
+
+[[row]]
+height = { length = 8 }
+gap = 3
+  [[row.child]]
+  widget = "clock"
+  width = { fill = 1 }
+  border = "top"
+  title = "now"
+  [[row.child]]
+  widget = "cal"
+  width = { fill = 1 }
+  border = "top"
+  title = "this month"
+  [[row.child]]
+  widget = "tz"
+  width = { fill = 1 }
+  border = "top"
+  title = "world clock"
+
+[[row]]
+height = { length = 2 }
+gap = 4
+  [[row.child]]
+  widget = "hour"
+  width = { fill = 1 }
+  [[row.child]]
+  widget = "day"
+  width = { fill = 1 }
+  [[row.child]]
+  widget = "year"
+  width = { fill = 1 }

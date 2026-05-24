@@ -1,0 +1,25 @@
+# ch8 §9 list_cards renderer — ImageLinkedList shape (basic_links repro).
+# Terminal image protocols don't survive a vhs capture, so the generated
+# figure has the thumbnail column filled with solid colour placeholders
+# in post (thumbnail_width reserves the slot regardless).
+[[widget]]
+id = "feed"
+fetcher = "basic_links"
+render = { type = "list_cards", max_items = 4, row_height = 3, thumbnail_width = 8 }
+[widget.options]
+links = [
+  { label = "ratatui 0.30 released", subtitle = "ratatui.rs · 2h ago", url = "https://ratatui.rs" },
+  { label = "Writing a terminal dashboard in Rust", subtitle = "Hacker News · 312 points", url = "https://news.ycombinator.com" },
+  { label = "Show HN: splashboard, a terminal splash", subtitle = "Hacker News · 88 comments", url = "https://news.ycombinator.com" },
+  { label = "The case for ambient information", subtitle = "example.com/blog · 5h ago", url = "https://example.com" },
+]
+
+[[row]]
+height = { length = 13 }
+  [[row.child]]
+  widget = "feed"
+  border = "top"
+  title = "feed"
+
+[[row]]
+height = { fill = 1 }

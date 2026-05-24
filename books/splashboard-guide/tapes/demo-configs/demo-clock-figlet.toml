@@ -1,0 +1,10 @@
+[[widget]]
+id = "clock"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "figlet", font = "big", align = "center" }
+
+[[row]]
+height = { length = 8 }
+  [[row.child]]
+  widget = "clock"

@@ -1,0 +1,136 @@
+# Wide-monitor showcase: a custom dashboard that actually uses
+# horizontal space — 3-column layouts everywhere instead of the
+# fixed-width sections home_daily ships with.
+
+[[widget]]
+id = "clock"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "moon"
+fetcher = "clock_almanac"
+render = "grid_table"
+
+[[widget]]
+id = "cpu"
+fetcher = "system_monitor_cpu"
+render = { type = "gauge_line", label_position = "center" }
+
+[[widget]]
+id = "mem"
+fetcher = "system_monitor_memory"
+render = { type = "gauge_line", label_position = "center" }
+
+[[widget]]
+id = "kusa"
+fetcher = "git_commits_activity"
+render = "grid_heatmap"
+
+[[widget]]
+id = "year"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "year"
+
+[[widget]]
+id = "month"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "month"
+
+[[widget]]
+id = "week"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "week"
+
+[[widget]]
+id = "tz"
+fetcher = "clock_timezones"
+render = "list_plain"
+[widget.options]
+timezones = [
+  { tz = "Asia/Tokyo", label = "Tokyo" },
+  { tz = "America/New_York", label = "New York" },
+  { tz = "Europe/London", label = "London" },
+  { tz = "Australia/Sydney", label = "Sydney" },
+  { tz = "UTC", label = "UTC" },
+]
+
+[[widget]]
+id = "quote"
+fetcher = "random_quote"
+render = { type = "list_plain", align = "center" }
+
+# Row 1: hero band — moon | clock | cpu+mem
+[[row]]
+height = { length = 8 }
+gap = 2
+  [[row.child]]
+  widget = "moon"
+  width = { fill = 1 }
+  border = "top"
+  title = "today"
+
+  [[row.child]]
+  widget = "clock"
+  width = { fill = 2 }
+  border = "top"
+  title = "now"
+
+  [[row.child]]
+  widget = "cpu"
+  width = { fill = 1 }
+  border = "top"
+  title = "cpu"
+
+# Row 2: full-width commit heatmap
+[[row]]
+height = { length = 10 }
+  [[row.child]]
+  widget = "kusa"
+  border = "top"
+  title = "commits"
+
+# Row 3: 3 progress gauges
+[[row]]
+height = { length = 2 }
+gap = 4
+  [[row.child]]
+  widget = "year"
+  width = { fill = 1 }
+
+  [[row.child]]
+  widget = "month"
+  width = { fill = 1 }
+
+  [[row.child]]
+  widget = "week"
+  width = { fill = 1 }
+
+# Row 4: world clock | memory | random quote
+[[row]]
+height = { length = 8 }
+gap = 2
+  [[row.child]]
+  widget = "tz"
+  width = { fill = 1 }
+  border = "top"
+  title = "world clock"
+
+  [[row.child]]
+  widget = "mem"
+  width = { fill = 1 }
+  border = "top"
+  title = "memory"
+
+  [[row.child]]
+  widget = "quote"
+  width = { fill = 2 }
+  border = "top"
+  title = "quote of the day"

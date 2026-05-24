@@ -1,0 +1,17 @@
+# ch10 KPI mini-chart — basic_read_store × chart_sparkline.
+# Reads $HOME/.splashboard/store/signups.json ({ "values": [...] }).
+[[widget]]
+id = "signups"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "chart_sparkline", style = "bars" }
+
+[[row]]
+height = { length = 6 }
+  [[row.child]]
+  widget = "signups"
+  border = "top"
+  title = "daily signups · last 30d"
+
+[[row]]
+height = { fill = 1 }

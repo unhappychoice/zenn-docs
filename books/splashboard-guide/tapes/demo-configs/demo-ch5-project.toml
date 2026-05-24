@@ -1,0 +1,49 @@
+# ch5 — a project dashboard: shown on cd into any git repo root that has
+# no per-repo config of its own. git-centric, reused across every repo.
+[[widget]]
+id = "name"
+fetcher = "git_repo_name"
+render = { type = "text_plain", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "status"
+fetcher = "git_status"
+render = { type = "status_badge" }
+
+[[widget]]
+id = "kusa"
+fetcher = "git_commits_activity"
+render = "grid_heatmap"
+
+[[widget]]
+id = "recent"
+fetcher = "git_recent_commits"
+render = { type = "list_timeline", bullet = "●", max_items = 4 }
+
+[[row]]
+height = { length = 1 }
+flex = "center"
+  [[row.child]]
+  widget = "name"
+  width = { length = 40 }
+
+[[row]]
+height = { length = 2 }
+flex = "center"
+  [[row.child]]
+  widget = "status"
+  width = { length = 40 }
+
+[[row]]
+height = { length = 9 }
+  [[row.child]]
+  widget = "kusa"
+  border = "top"
+  title = "commit activity"
+
+[[row]]
+height = { length = 8 }
+  [[row.child]]
+  widget = "recent"
+  border = "top"
+  title = "recent commits"

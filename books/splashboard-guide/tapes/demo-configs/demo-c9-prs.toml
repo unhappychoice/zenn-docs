@@ -1,0 +1,20 @@
+# ch9 §5 github_my_prs × list_timeline — basic_timeline repro
+[[widget]]
+id = "prs"
+fetcher = "basic_timeline"
+render = { type = "list_timeline", bullet = "●", max_items = 5 }
+[widget.options]
+events = [
+  { at = "2026-05-20T09:30:00+09:00", title = "review-requested: shape contract v2", status = "warn", detail = "acme/orion #418" },
+  { at = "2026-05-19T20:10:00+09:00", title = "approved: retry budget for scheduler", status = "ok", detail = "acme/orion #415" },
+  { at = "2026-05-19T13:00:00+09:00", title = "changes-requested: cache lock audit", status = "error", detail = "acme/api #207" },
+  { at = "2026-05-18T17:45:00+09:00", title = "merged: drop dead helper module", status = "ok", detail = "acme/orion #410" },
+  { at = "2026-05-18T11:20:00+09:00", title = "draft: layout solver split", status = "warn", detail = "acme/orion #409" },
+]
+
+[[row]]
+height = { length = 13 }
+  [[row.child]]
+  widget = "prs"
+  border = "top"
+  title = "my pull requests"

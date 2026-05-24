@@ -1,0 +1,86 @@
+# ch2 — an ambient home splash showing the kind of information density
+# splashboard aims for: clock, almanac, world clock, progress, feed.
+[[widget]]
+id = "clock"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "almanac"
+fetcher = "clock_almanac"
+render = "grid_table"
+
+[[widget]]
+id = "tz"
+fetcher = "clock_timezones"
+render = "list_plain"
+[widget.options]
+timezones = [
+  { tz = "Asia/Tokyo", label = "Tokyo" },
+  { tz = "America/New_York", label = "New York" },
+  { tz = "Europe/London", label = "London" },
+  { tz = "America/Los_Angeles", label = "SF" },
+]
+
+[[widget]]
+id = "year"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "year"
+
+[[widget]]
+id = "month"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "month"
+
+[[widget]]
+id = "feed"
+fetcher = "basic_timeline"
+render = { type = "list_timeline", bullet = "▸", max_items = 4 }
+[widget.options]
+events = [
+  { at = "2026-05-20T08:10:00+09:00", title = "Rust 1.91 released", status = "ok" },
+  { at = "2026-05-20T07:30:00+09:00", title = "ratatui 0.30 changelog", status = "ok" },
+  { at = "2026-05-19T22:00:00+09:00", title = "Show HN: a terminal dashboard", status = "warn" },
+  { at = "2026-05-19T19:40:00+09:00", title = "WASM components hit 1.0", status = "ok" },
+]
+
+[[row]]
+height = { length = 6 }
+gap = 3
+  [[row.child]]
+  widget = "almanac"
+  width = { fill = 1 }
+  border = "top"
+  title = "today"
+  [[row.child]]
+  widget = "clock"
+  width = { fill = 1 }
+  border = "top"
+  title = "now"
+  [[row.child]]
+  widget = "tz"
+  width = { fill = 1 }
+  border = "top"
+  title = "world"
+
+[[row]]
+height = { length = 2 }
+gap = 4
+  [[row.child]]
+  widget = "year"
+  width = { fill = 1 }
+  [[row.child]]
+  widget = "month"
+  width = { fill = 1 }
+
+[[row]]
+height = { length = 7 }
+  [[row.child]]
+  widget = "feed"
+  border = "top"
+  title = "feed"

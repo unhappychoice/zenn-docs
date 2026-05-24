@@ -1,0 +1,23 @@
+# ch9 §4 github_contributions × grid_heatmap — basic_heatmap repro
+[[widget]]
+id = "h"
+fetcher = "basic_heatmap"
+render = "grid_heatmap"
+[widget.options]
+row_labels = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+cells = [
+  [3, 1, 2, 0, 0, 0, 1, 4, 3, 0, 1, 4, 0, 2, 0, 3, 2, 0, 0, 1, 0, 0],
+  [0, 4, 0, 2, 0, 2, 1, 1, 2, 0, 2, 1, 2, 2, 1, 0, 1, 0, 2, 0, 2, 3],
+  [0, 0, 1, 2, 0, 0, 0, 1, 1, 1, 0, 0, 0, 4, 0, 4, 0, 3, 4, 1, 2, 0],
+  [2, 1, 0, 0, 0, 0, 0, 2, 4, 0, 2, 0, 0, 2, 1, 0, 4, 0, 1, 4, 0, 1],
+  [0, 1, 3, 1, 2, 1, 0, 2, 1, 0, 2, 0, 1, 1, 3, 2, 1, 0, 2, 2, 0, 4],
+  [0, 0, 2, 4, 2, 3, 1, 1, 0, 2, 1, 0, 2, 4, 1, 4, 1, 0, 2, 0, 2, 0],
+  [0, 0, 2, 0, 0, 0, 0, 0, 0, 3, 1, 2, 2, 0, 1, 2, 0, 3, 4, 2, 0, 0],
+]
+
+[[row]]
+height = { length = 9 }
+  [[row.child]]
+  widget = "h"
+  border = "top"
+  title = "contributions"

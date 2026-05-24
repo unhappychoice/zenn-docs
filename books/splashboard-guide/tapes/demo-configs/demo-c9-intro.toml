@@ -1,0 +1,102 @@
+# ch9 intro — several fetcher×renderer combos coexisting in one splash.
+[[widget]]
+id = "clock"
+fetcher = "clock"
+format = "%H:%M"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "cpu"
+fetcher = "basic_numbers"
+render = { type = "chart_sparkline", style = "bars" }
+[widget.options]
+values = [9, 14, 11, 38, 71, 64, 29, 17, 12, 44, 82, 90, 76, 33, 19, 13, 26, 51, 40, 21]
+
+[[widget]]
+id = "kusa"
+fetcher = "basic_heatmap"
+render = "grid_heatmap"
+[widget.options]
+row_labels = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"]
+cells = [
+  [0, 3, 3, 2, 4, 1, 4, 0, 1, 0, 0, 2, 3, 0, 0, 1, 1, 0, 3, 3],
+  [4, 0, 2, 4, 0, 2, 0, 0, 0, 0, 0, 4, 0, 2, 3, 4, 0, 0, 0, 4],
+  [1, 0, 1, 1, 0, 0, 4, 3, 1, 2, 0, 3, 2, 2, 4, 3, 2, 4, 3, 2],
+  [0, 0, 0, 4, 0, 4, 0, 1, 2, 0, 0, 0, 2, 2, 2, 2, 1, 0, 0, 0],
+  [0, 3, 2, 0, 0, 1, 3, 0, 0, 2, 4, 3, 1, 1, 0, 0, 4, 3, 4, 0],
+  [2, 0, 2, 2, 0, 3, 1, 0, 3, 0, 2, 0, 0, 4, 0, 2, 0, 4, 0, 1],
+  [2, 0, 2, 3, 4, 4, 2, 0, 2, 0, 0, 3, 0, 0, 2, 2, 1, 3, 2, 3],
+]
+
+[[widget]]
+id = "year"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "year"
+
+[[widget]]
+id = "month"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "month"
+
+[[widget]]
+id = "week"
+fetcher = "clock_ratio"
+render = { type = "gauge_line", label_position = "center" }
+[widget.options]
+period = "week"
+
+[[widget]]
+id = "prs"
+fetcher = "basic_timeline"
+render = { type = "list_timeline", bullet = "●", max_items = 3 }
+[widget.options]
+events = [
+  { at = "2026-05-20T09:30:00+09:00", title = "review-requested: shape contract v2", status = "warn", detail = "acme/orion #418" },
+  { at = "2026-05-19T20:10:00+09:00", title = "approved: retry budget for scheduler", status = "ok", detail = "acme/orion #415" },
+  { at = "2026-05-18T17:45:00+09:00", title = "merged: drop dead helper module", status = "ok", detail = "acme/orion #410" },
+]
+
+[[row]]
+height = { length = 5 }
+gap = 3
+  [[row.child]]
+  widget = "clock"
+  width = { fill = 1 }
+  border = "top"
+  title = "now"
+  [[row.child]]
+  widget = "cpu"
+  width = { fill = 1 }
+  border = "top"
+  title = "cpu"
+
+[[row]]
+height = { length = 9 }
+  [[row.child]]
+  widget = "kusa"
+  border = "top"
+  title = "commit activity"
+
+[[row]]
+height = { length = 2 }
+gap = 4
+  [[row.child]]
+  widget = "year"
+  width = { fill = 1 }
+  [[row.child]]
+  widget = "month"
+  width = { fill = 1 }
+  [[row.child]]
+  widget = "week"
+  width = { fill = 1 }
+
+[[row]]
+height = { length = 7 }
+  [[row.child]]
+  widget = "prs"
+  border = "top"
+  title = "my pull requests"

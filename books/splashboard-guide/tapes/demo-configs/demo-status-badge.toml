@@ -1,0 +1,36 @@
+[[widget]]
+id = "ok"
+fetcher = "basic_badge"
+render = "status_badge"
+[widget.options]
+status = "ok"
+label = "main · clean"
+
+[[widget]]
+id = "warn"
+fetcher = "basic_badge"
+render = "status_badge"
+[widget.options]
+status = "warn"
+label = "review pending"
+
+[[widget]]
+id = "err"
+fetcher = "basic_badge"
+render = "status_badge"
+[widget.options]
+status = "error"
+label = "CI failed"
+
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "ok"
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "warn"
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "err"

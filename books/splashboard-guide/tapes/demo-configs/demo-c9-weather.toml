@@ -1,0 +1,16 @@
+# ch9 §6 weather × chart_line — basic_points repro (24h temperature curve)
+[[widget]]
+id = "temp"
+fetcher = "basic_points"
+render = "chart_line"
+[widget.options]
+series = [
+  { name = "temp", points = [[0,14.2],[3,13.1],[6,12.5],[9,16.8],[12,21.4],[15,23.1],[18,20.6],[21,17.3],[24,15.0]] },
+]
+
+[[row]]
+height = { length = 11 }
+  [[row.child]]
+  widget = "temp"
+  border = "top"
+  title = "24h temperature"

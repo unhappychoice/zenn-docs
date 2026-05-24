@@ -1,0 +1,10 @@
+[[widget]]
+id = "habit"
+fetcher = "basic_read_store"
+file_format = "json"
+render = { type = "gauge_line", label_position = "center" }
+
+[[row]]
+height = { length = 3 }
+  [[row.child]]
+  widget = "habit"

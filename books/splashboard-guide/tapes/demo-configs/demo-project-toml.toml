@@ -1,0 +1,54 @@
+# ./.splashboard/dashboard.toml — the worked example from the
+# "dashboard.toml の組み立て方" chapter. git-only fetchers, so it
+# renders in any repository without network access or a token.
+
+[[widget]]
+id      = "hero"
+fetcher = "git_repo_name"
+render  = { type = "text_ascii", style = "figlet", font = "banner", align = "center", color = "panel_title" }
+
+[[widget]]
+id      = "subtitle"
+fetcher = "git_status"
+render  = { type = "text_plain", align = "center" }
+
+[[widget]]
+id      = "commits"
+fetcher = "git_commits_activity"
+render  = "grid_heatmap"
+
+[[widget]]
+id      = "recent"
+fetcher = "git_recent_commits"
+render  = { type = "list_timeline", bullet = "●", max_items = 3 }
+
+[[row]]                       # 1 段目: figlet ヒーロー
+height = { length = 8 }
+bg = "subtle"
+  [[row.child]]
+  widget = "hero"
+
+[[row]]                       # 2 段目: サブタイトルを中央寄せ
+height = { length = 3 }
+bg = "subtle"
+flex = "center"
+  [[row.child]]
+  widget = "subtitle"
+  width = { length = 70 }
+
+[[row]]                       # 3 段目: 空白行
+height = { length = 1 }
+
+[[row]]                       # 4 段目: 2 列の panel 風
+height = { length = 10 }
+gap = 4
+  [[row.child]]
+  widget = "commits"
+  width = { fill = 1 }
+  border = "top"
+  title = "commits"
+  [[row.child]]
+  widget = "recent"
+  width = { fill = 1 }
+  border = "top"
+  title = "recent"

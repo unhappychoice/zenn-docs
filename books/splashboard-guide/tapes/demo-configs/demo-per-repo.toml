@@ -1,0 +1,42 @@
+# Per-repo dashboard: lives at <repo>/.splashboard/dashboard.toml and
+# fires the moment you `cd` into the repository root. A minimal example
+# pairing git_repo_name / git_status / git_commits_activity.
+
+[[widget]]
+id = "name"
+fetcher = "git_repo_name"
+render = { type = "text_ascii", style = "blocks", pixel_size = "quadrant", align = "center", color = "panel_title" }
+
+[[widget]]
+id = "status"
+fetcher = "git_status"
+render = { type = "status_badge" }
+
+[[widget]]
+id = "kusa"
+fetcher = "git_commits_activity"
+render = "grid_heatmap"
+
+[[row]]
+height = { length = 4 }
+  [[row.child]]
+  widget = "name"
+
+[[row]]
+height = { length = 2 }
+flex = "center"
+  [[row.child]]
+  widget = "status"
+  width = { length = 36 }
+
+[[row]]
+height = { length = 9 }
+  [[row.child]]
+  widget = "kusa"
+  border = "top"
+  title = "commit activity"
+
+# Spacer: absorbs leftover viewport rows so the rows above keep their
+# declared heights instead of stretching to fill.
+[[row]]
+height = { fill = 1 }

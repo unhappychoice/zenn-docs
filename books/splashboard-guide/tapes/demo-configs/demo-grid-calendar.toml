@@ -1,0 +1,11 @@
+[[widget]]
+id = "cal"
+fetcher = "calendar_holidays"
+render = "grid_calendar"
+[widget.options]
+country = "JP"
+
+[[row]]
+height = { length = 10 }
+  [[row.child]]
+  widget = "cal"

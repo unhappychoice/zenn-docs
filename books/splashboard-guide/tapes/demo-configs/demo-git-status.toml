@@ -1,0 +1,31 @@
+[[widget]]
+id = "branch"
+fetcher = "git_status"
+render = { type = "status_badge" }
+
+[[widget]]
+id = "branch_text"
+fetcher = "git_status"
+render = { type = "text_plain", align = "center" }
+
+[[widget]]
+id = "branch_entries"
+fetcher = "git_status"
+render = { type = "grid_table" }
+
+[[row]]
+height = { length = 3 }
+flex = "center"
+  [[row.child]]
+  widget = "branch"
+  width = { length = 30 }
+
+[[row]]
+height = { length = 2 }
+  [[row.child]]
+  widget = "branch_text"
+
+[[row]]
+height = { length = 6 }
+  [[row.child]]
+  widget = "branch_entries"

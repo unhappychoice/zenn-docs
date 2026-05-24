@@ -1,0 +1,44 @@
+[[widget]]
+id = "year"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "year"
+
+[[widget]]
+id = "month"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "month"
+
+[[widget]]
+id = "week"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "week"
+
+[[widget]]
+id = "day"
+fetcher = "clock_ratio"
+render = { type = "gauge_circle", label_position = "center" }
+[widget.options]
+period = "day"
+
+[[row]]
+height = { length = 3 }
+gap = 2
+  [[row.child]]
+  widget = "year"
+  [[row.child]]
+  widget = "month"
+  [[row.child]]
+  widget = "week"
+  [[row.child]]
+  widget = "day"
+
+# Spacer: absorbs the remaining viewport rows so the gauge row above
+# keeps its declared 3-row height instead of stretching to fill.
+[[row]]
+height = { fill = 1 }
